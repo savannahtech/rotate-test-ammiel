@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  .inter {
+    font-family: var(--inter-font), sans-serif;
+  }
+
+  .avenir-next {
+    font-family: var(--avenir-next-font), sans-serif;
+  }
+}
+
+@layer components {
+
+  .container {
+    @apply mx-auto max-w-[1027px] w-[calc(100%_-_48px)];
+  }
+
+  .table-wrapper {
+    @apply w-full;
+
+    table {
+      @apply w-full text-sm;
+    }
+
+    th {
+      @apply font-normal text-xs tracking-[0.02em] uppercase text-gray-600 pb-1 text-left px-5;
+    }
+
+    thead tr {
+      @apply border-b border-b-gray-100/40 ;
+    }
+
+    tbody {
+      @apply divide-y divide-gray-100/40;
+    }
+
+    td {
+      @apply h-[72px] px-5;
+    }
+
+    td:first-of-type, th:first-of-type {
+      @apply pl-0;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
